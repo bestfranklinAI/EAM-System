@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block title %}Analysis{% endblock %} {% block
+content %}
+
+<center>
+  <h1>Please select the csv file you want to analysis.</h1>
+
+  <div class="select">
+    <form method="POST">
+      <select name="option" class="filter">
+        {%for file in files%}
+        <option>{{file}}</option>
+        {%endfor%}
+      </select>
+      <br />
+      <button type="submit" name = "csv" value = "csv" class="btn btn-primary btn-lg mt-3">Submit</button>
+    </form>
+  </div>
+</center>
+<!-- Inside the <head> section -->
+<script src="./static/javascript/width.js"></script>
+
+{% endblock %}

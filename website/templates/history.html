@@ -1,0 +1,106 @@
+{% extends "base.html" %} {% block title %}History{% endblock %} {% block
+content %}
+
+<center>
+  {%if mode == 1 or mode == 2%} {% for key, value in dictionary.items()%}
+  <h3>{{key}}: {{value}}</h3>
+  {%endfor%} {%endif%} {%if mode == 0 or mode == 1 or mode == 2%}
+  <div style="display: block">{{diagram | safe}}</div>
+
+  <h1>{{instruction}}</h1>
+
+  <div class="select">
+    <form method="POST">
+      <select name="option" class="filter">
+        {%for file in files%}
+        <option>{{file}}</option>
+        {%endfor%}
+      </select>
+      <button
+        type="submit"
+        name="submit"
+        value="submit"
+        class="btn btn-primary btn-lg ml-2"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+
+  <!--Smart button for AI generation-->
+  {%if mode == 1%}
+  <form method="POST">
+    <button
+      type="submit"
+      name="AI"
+      value="AI"
+      class="btn btn-primary btn-lg glow-on-hover mt-3"
+      id="report"
+      style="background-color: #f5c3cb; border-color: #f5c3cb"
+    >
+      <img
+        src="static/images/AI.gif"
+        alt="Icon"
+        style="width: 10%; height: 100%"
+      />
+      Smart Report powerd by Meta Llama3
+    </button>
+  </form>
+  <br />
+  {%endif%}
+  <!--END smart button-->
+
+  <h1>{{data}}</h1>
+  <div id="loading" style = "display:none;">
+  <video src="static/images/loading.mp4" loop autoplay style="width: 50%; height: auto;">
+    Your browser does not support animation.
+  </video>
+  <br />
+  <img src="static/images/loading-line.gif" style="width: 20%; height: auto;">
+</div>
+
+
+<script>
+  document.getElementById("report").addEventListener("click", function() {
+    var summaryElement = document.getElementById("summary");
+    var loading = document.getElementById("loading");
+    if (summaryElement) {
+      loading.style.display = "none";
+    }
+    else{
+      loading.style.display = "block";
+    }
+  });
+</script>
+
+
+  {%if mode == 2%}
+  <div style="text-align: left; background-color: lightyellow; padding: 20px;">
+    <h1>Filter : {{dictionary["Type selected"]}}</h1>
+    <!--<h2>{{summary[0]}}</h2>
+    <br />
+    <h2>{{summary[1]}}</h2>
+    <br />
+    <h2>{{summary[2]}}</h2>
+    <br />
+    <h2>{{summary[3]}}</h2>
+    <br />
+    -->
+    <md id = "summary" style="font-size: larger;">{{summary}}</md>
+    <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag.js"></script>
+  </div>
+  {%endif%}
+</center>
+{%endif%} {%if mode == 1 or mode == 2%}
+<br />
+
+<div style="height: 800px; width: 90%; overflow: auto; margin: auto">
+  {{visual| safe}}
+</div>
+
+{%endif%}
+
+<!-- Inside the <head> section -->
+<script src="./static/javascript/width.js"></script>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block title %}Upload{% endblock %} {% block content
+%}
+
+
+
+<form method="POST" enctype="multipart/form-data">
+  <div class="wrapper">
+    <div class="container">
+      <h1>Upload a csv file here</h1>
+      <div class="upload-container">
+        <div class="border-container">
+          <div class="icons fa-4x">
+            <i
+              class="fas fa-file-image"
+              data-fa-transform="shrink-3 down-2 left-6 rotate--45"
+            ></i>
+            <i class="fas fa-file-alt" data-fa-transform="shrink-2 up-4"></i>
+            <i
+              class="fas fa-file-pdf"
+              data-fa-transform="shrink-3 down-2 right-6 rotate-45"
+            ></i>
+          </div>
+          <input type="file" name="file" enctype="multipart/form">
+          <p>
+            Drag and drop files here, or
+            <a href="#" id="file-browser">browse</a> your computer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div style="text-align:center">
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </div>
+    
+</form>
+<script src = "static/javasript/upload.js"></script>
+{% endblock %}

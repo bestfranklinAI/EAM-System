@@ -1,0 +1,222 @@
+{% extends "base.html" %} {% block title %}Model{% endblock %} {% block content
+%}
+<center>
+  {% for key, value in dictionary.items()%}
+  <h3>{{key}}: {{value}}</h3>
+  {%endfor%}
+  <form method="POST">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      style="background-color: grey; border-color: grey"
+      name="restart"
+      value="restart"
+    >
+      Restart
+    </button>
+    {%if mode ==2%}
+    <button
+      type="submit"
+      name="start"
+      value="start"
+      class="btn btn-primary"
+      style="background-color: #f5c3cb; border-color: #f5c3cb; color: black"
+    >
+      Reanalyze by AI model
+    </button>
+    {%endif%}
+
+
+
+    {%if mode == 3 or mode == 5%}
+    <form method="POST">
+      <select name="filter" class="filter">
+        {%for option in option_list%}
+        <option>{{option}}</option>
+        {%endfor%}
+      </select>
+
+
+      <button
+      type="submit"
+      name="category"
+      value="category"
+      class="btn btn-primary"
+      style="background-color: #f5c3cb; border-color: #f5c3cb; color: black"
+    >
+      Filter by category
+    </button>
+    </form>
+    <br/>
+    <script src="./static/javascript/width.js"></script>
+    
+    {%endif%}
+
+  </form>
+
+
+  
+  <!-- option list filter-->
+
+  {%if mode == 4%}
+
+  <h1>{{instruction}}</h1>
+
+    <form method="POST">
+
+      <select name="filter0" class="filter">
+        <option>ALL</option>
+        {%for option in option_list[0]%}
+        <option>{{option}}</option>
+        {%endfor%}
+      </select>
+
+      <div style = "height: 10px;"></div>
+
+      <select name="filter1" class="filter">
+        <option>ALL</option>
+        {%for option in option_list[1]%}
+        <option>{{option}}</option>
+        {%endfor%}
+      </select>
+
+      <div style = "height: 10px;"></div>
+
+
+      <select name="filter2" class="filter">
+        <option>ALL</option>
+        {%for option in option_list[2]%}
+        <option>{{option}}</option>
+        {%endfor%}
+      </select>
+
+      <div style = "height: 10px;"></div>
+
+
+      <select name="filter3" class="filter">
+        <option>ALL</option>
+        {%for option in option_list[3]%}
+        <option>{{option}}</option>
+        {%endfor%}
+      </select>
+
+      <div style = "height: 10px;"></div>
+
+
+
+
+      <br />
+      <button type="submit" class="btn btn-primary btn-lg mt-3">Submit</button>
+    </form>
+
+    <!-- Inside the <head> section -->
+    <script src="./static/javascript/width.js"></script>
+
+    {%endif%}
+
+
+
+  {%if mode == 0%}
+
+  <h1>{{instruction}}</h1>
+
+    <form method="POST">
+      <select name="filter" class = "filter">
+        {%for option in option_list%}
+        <option>{{option}}</option>
+        {%endfor%}
+      </select>
+      <br />
+      <button type="submit" class="btn btn-primary btn-lg mt-3">Submit</button>
+    </form>
+
+    <!-- Inside the <head> section -->
+    <script src="./static/javascript/width.js"></script>
+
+    {%endif%} {%if mode == 1%}
+    <!--<form method="POST">
+      <button
+        type="submit"
+        name="start"
+        value="start"
+        class="btn btn-primary btn-lg mt-3"
+        style="background-color: green; border-color: green"
+      >
+        Start AI model
+      </button>
+    </form>-->
+
+    <form method = "POST">
+    <button
+      type="submit"
+      name="start"
+      value="start"
+      id = "start"
+      class="btn btn-primary btn-lg glow-on-hover mt-3"
+      style="background-color: #f5c3cb; border-color: #f5c3cb"
+    >
+      <img
+        src="static/images/AI.gif"
+        alt="Icon"
+        style="width: 10%; height: 100%"
+      />
+      Start AI model
+    </button>
+  </form>
+
+    {%endif%} {%if mode == 2%}
+    <!--<div class="progress">
+      <div class="status">
+        <h2 id="innerStatus">Loading...</h2>
+      </div>
+    </div>-->
+
+    <script>
+      window.onload=function(){
+        document.getElementById("view_button").style.display='none';
+      
+      }
+    </script>
+    
+    
+    <div id="progress1">
+      <span class="progress-text"></span>
+      <div class="progress-bar" role="progressbar"></div>
+    </div>
+
+    <h2 id="model" style = "margin-top: 10px;">
+      Pulling Google Translate API for Data Formating ......
+    </h2>
+
+
+
+
+    <form id = "view_button" method = "POST">
+      <button type="submit" class="btn btn-primary btn-lg mt-3" name="result" value="result">View the analysis</button>
+    </form>
+
+    <script src="static/javascript/progressbar.js"></script>
+
+    
+
+    {%endif%}
+
+
+    {%if mode == 5%}
+    <div>{{diagram | safe}}</div>
+    {%endif%}
+
+
+    {%if mode == 3 or mode ==5%}
+  
+
+    <br/>
+    <div style = "height: 500px; width: 90%; overflow: auto; margin: auto;" >{{visual | safe}}</div>
+    
+    {%endif%}
+
+
+  </div>
+</center>
+
+{% endblock %}

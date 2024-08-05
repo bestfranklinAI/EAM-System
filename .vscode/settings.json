@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/81059c92-aa26-4014-9881-1d8f7153e75d/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/haecoeam",
+    "appService.deploySubpath": "."
+}

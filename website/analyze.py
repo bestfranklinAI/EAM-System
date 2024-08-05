@@ -120,14 +120,21 @@ def ask(OLLAMA_ENDPOINT, OLLAMA_CONFIG, PROMPT_TEMPLATE, text):
     return response.json()["response"].strip()
 
 
-def GPT(PROMPT, PROMPT_TEMPLATE, progress_bar = True):
+def GPT(PROMPT, PROMPT_TEMPLATE, progress_bar = True, detail = False):
     global pbar
     OLLAMA_ENDPOINT = "http://localhost:11434/api/generate"
-    OLLAMA_CONFIG = {
-        "model": "llama3.1",
-        "keep_alive": "5m",
-        "stream": False,
-    }
+    if detail:
+        OLLAMA_CONFIG = {
+            "model": "llama3.1",
+            "keep_alive": "5m",
+            "stream": False,
+        }
+    else:
+        OLLAMA_CONFIG = {
+            "model": model,
+            "keep_alive": "5m",
+            "stream": False,
+        }
 
     prompt = [OLLAMA_ENDPOINT, OLLAMA_CONFIG, PROMPT_TEMPLATE, PROMPT]
     if progress_bar:
@@ -175,7 +182,11 @@ def style(df, random = False):
 
 
 #########################################################################################Main Program 
-row_limited = 51
+row_limited = 16
+model = "llama3.1"
+# model = "phi3"
+# model = "qwen2:1.5b"
+# model = "qwen2:0.5b""
 #########################################################################################Define a function that can be called (argument : csv file, filter, limit)
 def data_process(csv, filter_by, path):
     global row_limited
@@ -355,7 +366,7 @@ def data_translate(csv, filter_by, limit, cookie):
     #########################################################################################Using GPT to format the summary      
             
     PROMPT_TEMPLATE = Template(
-        """Summarize this sentence into two parts and output should strictly follows this template, DO NOT include unnecessary words or sentences: 
+        """Summarize this sentence into two parts separated by "|", DO NOT include unnecessary words or sentences, DO NOT chat, make sure the output is CONCISE, DIRECTLY give the output strictly following this template: 
         
         <what is broken> | <the reason for maintenance>
         
@@ -420,7 +431,7 @@ def data_translate(csv, filter_by, limit, cookie):
     df_sort = df_sort[mask]
     X= X[mask]
     
-    time_now = str(datetime.now())
+    time_now = str(datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
     filename = "[" + time_now + "]" + csv
     df_sort.to_csv(ANALYZE_PATH + filename, index = False)
 
@@ -580,7 +591,7 @@ def AI(filter, csv):
 
     """)
 
-    summary = str(GPT(str(reasons), PROMPT_TEMPLATE, progress_bar=False))
+    summary = str(GPT(str(reasons), PROMPT_TEMPLATE, progress_bar=False, detail=True))
     # summary_list = summary.split(sep="|", maxsplit=3)
     
     return summary

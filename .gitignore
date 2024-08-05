@@ -1,0 +1,8 @@
+#avoid csv files, json in all folders and subfolders except uploads
+*.csv
+*.json
+!website/static/uploads/*.csv
+
+
+#avoid all html files under the folder visuals
+website/static/visuals/*.html

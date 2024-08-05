@@ -1,6 +1,6 @@
 #avoid csv files, json in all folders and subfolders except uploads
 *.csv
-*.json
+website/static/filter_config/*.json
 !website/static/uploads/*.csv
 
 

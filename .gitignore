@@ -12,3 +12,6 @@ __pycache__/
 
 #avoid all html files under the folder visuals
 website/static/visuals/*.html
+
+#mac
+.DS_Store

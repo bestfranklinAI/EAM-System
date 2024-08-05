@@ -1,7 +1,13 @@
 #avoid csv files, json in all folders and subfolders except uploads
 *.csv
 website/static/filter_config/*.json
-!website/static/uploads/*.csv
+
+#ignore database
+instance/*.db
+
+
+#temp folder
+__pycache__/
 
 
 #avoid all html files under the folder visuals

@@ -75,4 +75,5 @@ jobs:
         with:
           app-name: 'eam'
           slot-name: 'Production'
+          startup-file: 'gunicorn --bind=0.0.0.0 --timeout 600 main:app'
           

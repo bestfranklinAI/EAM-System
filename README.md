@@ -1,7 +1,7 @@
 # Data Analysis for EAM system
 
 ## Flow Chart
-![[flowchat.png]]
+![](flowchat.png)
 Demo Website : https://webml-demo.vercel.app
 
 ## Description

@@ -27,14 +27,14 @@ To install this project, follow these steps:
 7. Step 7: Verify Configuration (python --version pip list)
 
 
-##### For Step 4 - 7, feel free to paste the following code to the working folder directory of the command prompt (not powershell) **FOR THE FIRST TIME** (only need to do ONCE) ==(For window)==
+##### For Step 4 - 7, feel free to paste the following code to the working folder directory **FOR THE FIRST TIME** (only need to do ONCE) *(For window)*
 
 ```powershell
 # Step 4: Create a virtual environment
 python -m venv EAM
 
 # Step 5: Activate the virtual environment
-EAM\Scripts\Activate
+powershell.exe -ExecutionPolicy Unrestricted -File .\EAM\Scripts\activate.ps1
 
 # Step 6: Install the required packages
 pip install -r requirements.txt
@@ -58,9 +58,10 @@ To use this project, follow these steps:
 4. Step 4: Navigate to analysis page
 5. Step 5: View the summary and category in history page
 
-##### For Step 1-2, feel free to copy the following code to the Command Prompt (not powershell) every time you want to start to program. ==(For window)==
+##### For Step 1-2, feel free to copy the following every time you want to start to program. *(For window)*
 ```powershell
-EAM\Scripts\Activate
+#Activate the virtual environment
+powershell.exe -ExecutionPolicy Unrestricted -File .\EAM\Scripts\activate.ps1
 # Step 1: Run app.py using the virtual environment's Python interpreter
 python app.py
 
@@ -73,8 +74,8 @@ start http://127.0.0.1:5000
 Contributions are welcome! Please follow these guidelines:
 
 - Guidelines 1: Clone the git repository
-- Guidelines 2: checkout to a branch
-- Guidelines 3: post a push request
+- Guidelines 2: Checkout to a branch
+- Guidelines 3: Post a push request
 
 ## Contributor
 - Franklin Cheung (franklin123ann@gmail.com)

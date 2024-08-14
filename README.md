@@ -31,9 +31,11 @@ To install this project, follow these steps:
 
 To use this project, follow these steps:
 
-1. Step 1: Upload the file in csv format
-2. Step 2: Navigate to analysis page
-3. Step 3: View the summary and category in history page
+1. Step 1: Run app.py
+2. Step 2: Browse http://127.0.0.1:5000
+3. Step 3: Upload the file in CSV format
+4. Step 4: Navigate to analysis page
+5. Step 5: View the summary and category in history page
 
 ## Contributing
 

@@ -2,7 +2,7 @@
 
 ## Flow Chart
 ![](flowchart.png)
-Demo Website : https://webml-demo.vercel.app
+
 
 ## Description
 
@@ -21,21 +21,52 @@ To install this project, follow these steps:
 1. Step 1: Install Ollama
 2. Step 2: run ollama pull phi3 llama3.1 (depends on GPU configuration)
 3. Step 3: Install Python
-4. Step 4: python3.10 -m venv EAM
+4. Step 4: python -m venv EAM
 5. Step 5: EAM\Scripts\activate
 6. Step 6: pip install -r requirements.txt
 7. Step 7: Verify Configuration (python --version pip list)
+
+
+##### For Step 4 - 7, feel free to paste the following code to the working folder directory of the command prompt (not powershell) **FOR THE FIRST TIME** (only need to do ONCE) ==(For window)==
+
+```powershell
+# Step 4: Create a virtual environment
+python -m venv EAM
+
+# Step 5: Activate the virtual environment
+EAM\Scripts\Activate
+
+# Step 6: Install the required packages
+pip install -r requirements.txt
+
+# Step 7: Verify Configuration
+echo "Python Version:"
+python --version
+
+echo "Installed Packages:"
+pip list
+```
 
 
 ## Usage
 
 To use this project, follow these steps:
 
-1. Step 1: Run app.py
+1. Step 1: Run "app.py"
 2. Step 2: Browse http://127.0.0.1:5000
 3. Step 3: Upload the file in CSV format
 4. Step 4: Navigate to analysis page
 5. Step 5: View the summary and category in history page
+
+##### For Step 1-2, feel free to copy the following code to the Command Prompt (not powershell) every time you want to start to program. ==(For window)==
+```powershell
+EAM\Scripts\Activate
+# Step 1: Run app.py using the virtual environment's Python interpreter
+python app.py
+
+# Step 2: Browse http://127.0.0.1:5000
+start http://127.0.0.1:5000
+```
 
 ## Contributing
 
@@ -46,7 +77,7 @@ Contributions are welcome! Please follow these guidelines:
 - Guidelines 3: post a push request
 
 ## Contributor
-- Franklin Cheung
+- Franklin Cheung (franklin123ann@gmail.com)
 
 ## License
 

@@ -5,7 +5,6 @@ certifi==2024.6.2
 chardet==3.0.4
 charset-normalizer==3.3.2
 click==8.1.7
-colorama==0.4.6
 comm==0.2.2
 contourpy==1.2.1
 cycler==0.12.1
@@ -19,6 +18,7 @@ Flask-Login==0.6.3
 Flask-SQLAlchemy==3.1.1
 fonttools==4.53.0
 fsspec==2024.6.0
+gensim==4.3.2
 googletrans==3.1.0a0
 h11==0.9.0
 h2==3.2.0
@@ -30,7 +30,6 @@ huggingface-hub==0.23.4
 hyperframe==5.2.0
 idna==2.10
 importlib_metadata==7.1.0
-intel-openmp==2021.4.0
 ipykernel==6.29.4
 ipython==8.25.0
 itsdangerous==2.2.0
@@ -44,9 +43,8 @@ llvmlite==0.43.0
 MarkupSafe==2.1.5
 matplotlib==3.9.0
 matplotlib-inline==0.1.7
-mkl==2021.4.0
 mpmath==1.3.0
-nest-asyncio==1.6.0
+nest_asyncio==1.6.0
 networkx==3.3
 nltk==3.8.1
 numba==0.60.0
@@ -57,10 +55,11 @@ parso==0.8.4
 pexpect==4.9.0
 pickleshare==0.7.5
 pillow==10.3.0
+pip==24.0
 platformdirs==4.2.2
 plotly==5.22.0
 prompt_toolkit==3.0.47
-psutil==6.0.0
+psutil==5.9.0
 ptyprocess==0.7.0
 pure-eval==0.2.2
 Pygments==2.18.0
@@ -68,7 +67,6 @@ pynndescent==0.5.13
 pyparsing==3.1.2
 python-dateutil==2.9.0
 pytz==2024.1
-pywin32==306
 PyYAML==6.0.1
 pyzmq==25.1.2
 regex==2024.5.15
@@ -84,7 +82,6 @@ sniffio==1.3.1
 SQLAlchemy==2.0.31
 stack-data==0.6.2
 sympy==1.12.1
-tbb==2021.13.1
 tenacity==8.5.0
 threadpoolctl==3.5.0
 tokenizers==0.19.1
